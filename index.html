@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset = "UTF-8">
+<title></title>
+
+</head>
+<body>
+
+<h1> Recipes</h1>
+
+<center><table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Picture</th>
+			<th>Ingredients</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Chicken Soup</td>
+			<td><img src = "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/7/17/1/FN_Simple-Chicken-Soup_s4x3.jpg.rend.hgtvcom.616.462.jpeg"></td>
+			<td>Chicken<br> Veggies<br> Broth</td>
+		</tr>
+	</tbody>
+</table>
+</center>
+
+
+
+<h2>Add Another Recipe!</h2>
+<label for="name">Name</label>
+<input id="name" type="text" />
+
+<label for="ingredients">Ingredients</label>
+<input id="ingredients" type="text" />
+
+<center>
+<button class = "primary">Insert</button>
+<button class = "secondary"> Clear </button>
+</center>
+
+<style>
+	h1{
+		text-align: center;
+		font-size: 40px;
+		font-family: sans-serif;
+		color: #e6a2e1;
+		font-variant: small-caps;
+		text-shadow: 2px 0 4px #8e8a8a;
+	}
+	
+	h2{
+		text-align: center;
+		font-family: sans-serif;
+		font-variant: small-caps;
+		color: #e6a2e1;
+		text-shadow: 1px 1px 1px #777474;
+	}
+	
+	table{
+		border-spacing: 25px;
+		text-align: center;
+	}
+	
+	thead{
+		color: #e4accb;
+		text-shadow: 2px 1px #ccc9c9;
+		font-size: 30px;
+	}
+	
+	tbody{
+		color: #f583e6;
+		text-shadow: 1px 0 #c5c1c1;
+		font-family: sans-serif;
+	}
+	
+	label{
+		color: #f99ff5;
+		font-family: sans-serif;
+		text-shadow: 0 1px 0px #9c9999;
+		font-size: 17px;
+		display: block;
+		text-align: center;
+	}
+	
+	input{
+		margin: auto;
+		display: block;
+		color: #f583e6;
+		text-shadow: 1px 0 #c5c1c1;
+		font-family: sans-serif;
+	}
+	
+	img{
+		width: 100px;
+		display: block;
+		margin: auto;
+	}
+	
+	button.primary{
+		padding: 5px;
+		font-size: 17px;
+		background-color: #8e058b;
+		color: #e2d8d8;
+	}
+	
+	button.secondary{
+		padding: 5px;
+		font-size: 17px;
+		background-color: #f5c0e0;
+		color: #a9a4a4;
+	}
+</style>
+
+</body>
+</html>
