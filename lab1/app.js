@@ -41,7 +41,7 @@ class Cart {
         this.root = root; //table elements
         this.store = store;
 		this.items = this.store.cartItems;
-        init();
+        this.init();
     }
 
     init () {
@@ -104,8 +104,16 @@ class Cart {
 	 */
     renderListAsHTML(list) {
 		// replace with the for loop
-		let result = '<tr><td>Name</td><td>Price</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
-		return result;
+		//let result = '<tr><td>Name</td><td>Price</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
+		//return result;
+		
+		list.forEach(function(item){
+			var result = "";
+			result = '<tr><td>item.name</td><td>item.price</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
+			
+				console.log(result);
+			
+		});
     }
     /**
      * Class CartItem {
