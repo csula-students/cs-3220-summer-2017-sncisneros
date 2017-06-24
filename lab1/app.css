@@ -12,7 +12,7 @@ body> header section{
 
 	display:flex;
 	align-items: center;
-	padding: 1em;
+	padding: 4px;
 
 }
 
@@ -21,7 +21,7 @@ body > header {
 	background-color: pink;
 	display: flex;
 	font-variant: small-caps;
-	padding: 1em;
+	padding: 4px;
 
 }
 
@@ -96,11 +96,26 @@ h2 {
 
 }
 
+h3 {
+
+	color: slategray;
+	font-variant: small-caps;
+	font-size: 25px
+
+}
+
 h4 {
 
 	color: slategray;
 	font-weight: bold;
 	font-size: 25px;
+
+}
+
+h5 {
+
+	color: slategray;
+	font-size: 18px;
 
 }
 
@@ -117,6 +132,17 @@ dt {
 	float: left;
     width: 30%;
 	position: relative;
+
+}
+
+.newItem {
+
+	padding: 10px;
+	float: left;
+    width: 40%;
+	position: relative;
+	display: flex;
+	justify-content: space-around;
 
 }
 
@@ -168,9 +194,24 @@ td {
 
 }
 
+.delete {
+
+	background-color: red;
+	color: black;
+
+}
+
+.add {
+
+	background-color: limegreen;
+	color: black;
+	float: right;
+
+}
+
 .checkout {
 
-	float: right;
+	float: right;	
 
 }
 
@@ -182,3 +223,4 @@ body>footer {
 
    
 }
+
