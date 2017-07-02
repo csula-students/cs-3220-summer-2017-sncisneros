@@ -46,7 +46,8 @@ class Cart {
 
     init () {
         // Render a list of items under root element
-       this.render();
+		this.render();
+		this.removeItem();
         // TODO: attach all necessary events
     }
 
@@ -55,17 +56,22 @@ class Cart {
     }
 
     // remove an item from shopping cart
-    removeItem (item) {
-		
-		let deleteButtons = this.root.querySelectorAll('.delete');
-		
-		deleteButtons.forEach(function(deleteBtn){
-				deleteBtn.addEventListener('click', () => {
-					this.items.splice(item, 1);
-					
-				})
-			})
-		
+    removeItem () {
+		let deleteButtons = this.root.querySelectorAll('.delete-button');
+		 
+		 for (var i = 0; i < deleteButtons.length; i ++) {
+				let deleteBtn = deleteButtons[i];
+        			deleteBtn.addEventListener('click', () => {
+				//	debugger;
+				// splice takes two arguments first being the index, second being
+        		// the number of items removing
+				console.log(this.items[0]);
+        		this.items.splice(0, 1);
+				alert('You are deleting');
+			});
+			
+        }
+	
 		
         // TODO: logic to remove an item from cart
         // call render method when the item is removed to update view
@@ -74,6 +80,15 @@ class Cart {
 
     placeOrder () {
         // add item to statuses in store as status "in progress"
+		//checkout button 
+		let placeOrderBtn = this.root.querySelector('.checkoout');
+		console.log(placeOrderBtn);
+		placeOrderBtn.addEventListener('click', () => {
+			
+			
+		})
+		
+		
     }
 
     // render a list of item under root element
@@ -81,55 +96,28 @@ class Cart {
 		console.log(this.store.cartItems);
         let tbody = this.root.querySelector('tbody');
         // using innerHTML to render a list of table row item under tbody
-        tbody.innerHTML = this.renderListAsHTML(this.store.cartItems)
-        let deleteButtons = this.root.querySelectorAll('.delete-button');
-        let fakeList = [{name: 'test', price: 9.99}, {name: 'test2', price: 9.59}];
-        for (var i = 0; i < deleteButtons.length; i ++) {
-        	let deleteBtn = deleteButtons[i];
-        	let scopedFakeList = fakeList;
-			deleteBtn.addEventListener('click', () => {
-        		debugger;
-        		// splice takes two arguments first being the index, second being
-        		// the number of items removing
-        		scopedFakeList.splice(0, 1);
-				alert('You are deleting' + deleteBtn);
-			});
-        }
-    }
+        tbody.innerHTML = this.renderListAsHTML(this.items)
+       
+  }
 	
-	/*
-	 * Input is a list of cart items (that were added through checkout button)
-	 *
-	 * Output is a String (which is HTML itself)
-	 */
+	
     renderListAsHTML(list) {
 		// replace with the for loop
 		//let result = '<tr><td>Name</td><td>Price</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
+		//console.log(result);
 		//return result;
 		
-		list.forEach(function(item){
-			var result = "";
-			result = '<tr><td>item.name</td><td>item.price</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
-			
-				console.log(result);
-			
-		});
+		let result = " ";
+		for(var i = 0; i<list.length; i++){
+			result += "<tr><td>"+ list[i].name + "</td><td> " + list[i].price + '</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
+		}
+		return result;
+		
+		
+		
+	
     }
-    /**
-     * Class CartItem {
-     *   String name;
-     *   double price;
-     * }
-     *
-     * public String rednerListAsHTML(List<CartItem> list) {
-     *   // loop through the list and add it to single string
-     *   String result = "";
-     *   for (int i = 0; i < list.size(); i ++) {
-     *     result += list.get(i).name + "-" + this.get(i).price;
-     *   }
-     *   return result;
-     * }
-     */
+   
 }
 
 class CheckoutButton {
@@ -193,6 +181,105 @@ class StatusTable {
     }
 }
 
+class Inventory {
+    constructor(root, store) {
+        this.root = root;
+        this.store = store;
+		this.foods = this.store.foods;
+        this.init();
+    }
+
+    init () {
+        this.render();
+        // TODO: attach event listeners like click to remove items after rendering
+    }
+
+    destroy () {
+        // TODO: remove event listeners added from the init above
+    }
+
+    removeItem (itemName) {
+        // TODO: function to remove item given item name from store
+		
+		
+    }
+
+    render () {
+        // using innerHTML to render inventory listing
+		//let inventoryTable = this.root.querySelector("tbody");
+		//console.log(this.foods);
+		//inventoryTable.innerHTML = function(this.foods){
+		//	let foods = this.foods;
+		//	let result = " ";
+		//	(var i = 0; i< foods.length; i++){
+		//	result += "<tr><td>"+ food[i].date + "</td><td> " + food[i].name + '</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
+		//}
+		//return result;
+	//	}
+    }
+}
+
+class Menu {
+    constructor(root, store) {
+        this.root = root;
+        this.store = store;
+        this.init();
+    }
+
+    init () {
+        this.render();
+    }
+
+    render () {
+        // TODO: render a list of food menu from store using innerHTML
+		
+//		this.store.foods, should support/replace menu
+
+		console.log(this.store.foods);
+		//let result = " ";
+		//	for(var i = 0; i<list.length; i++){
+		//		result += "<tr><td>"+ list[i].name + "</td><td> " + list[i].price + '</td><td><button class="delete-button" data-id="0">Delete</button></td></tr>';
+		//	}
+		//return result;
+//    }
+	}
+}
+
+class CreateFood {
+    constructor(root, store) {
+        this.root = root; // root should be the container of the form itself
+        this.store = store;
+        this.init();
+    }
+
+    init () {
+        // attach click event to create button
+    }
+
+    createFood () {
+        // will need to do querySelector to find out every single form element
+        // to get their values before creating a new food
+        // after creating a new food item, add it to store
+		
+		 let foods = this.store.foods || [];
+		 
+		 let foodItem = this.root.querySelector('.newFoods');
+		
+		console.log(foodItem);
+		//  console.log(foods);
+		//foods.push({ 
+			//		name: foodItem.name,
+				//	img: foodItem.image,
+				//description: foodItem.description,
+						// ingredients: this.store.ingredient ||[]
+		//});
+		console.log(foods);
+		
+		this.store.foods = foods;
+		//take name, image, description and add to foods
+    }
+}
+
 // DOMContentLoaded event will allow us to run the following function when
 // everything is ready. Think of the following code will only be executed by
 // the end of document
@@ -203,6 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // // use querySelector to find the cart element (preferably by id selector)
     let cart = document.querySelector('.cart');
     let checkoutButtons = document.querySelectorAll('.checkoutBtn');
+	let inventory = document.querySelector('.inventory');
 
     console.log(cart);
     console.log(checkoutButtons);
@@ -211,6 +299,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // if (table) {
     //     new StatusTable(table, store);
     // }
+	
+	
     if (cart) {
         new Cart(cart, store);
     }
@@ -219,4 +309,8 @@ document.addEventListener('DOMContentLoaded', () => {
             new CheckoutButton(checkoutButtons[i], store);
         }
     }
+	
+	if(inventory){
+		new Inventory(inventory, store);
+	}
 });
