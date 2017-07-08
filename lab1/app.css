@@ -139,13 +139,18 @@ dt {
 
 	padding: 10px;
 	float: left;
-    width: 40%;
+    width: 45%;
 	position: relative;
-	display: flex;
-	justify-content: space-around;
-
+	
 }
 
+.newItem1 {
+
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 3em;
+
+}
 
 button {
 	
@@ -194,7 +199,7 @@ td {
 
 }
 
-.delete {
+.delete-button {
 
 	background-color: red;
 	color: black;
