@@ -36,5 +36,10 @@
 	<button>Checkout</button>
 </form>
 
+	<footer>
+	<div class="container">&copy; 2017 The Good Food, Inc. All Rights
+		Reserved</div>
+	</footer>
+
 </body>
 </html>

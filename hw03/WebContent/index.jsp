@@ -12,11 +12,9 @@
 </head>
 <body>
 
-<main>
-		<section class="container">
-			<h2>Food Menu</h2>
+		<h2>Food Menu</h2>
 	
-			<section class="item">
+			
 	
 				<table>
 		<tr>
@@ -36,7 +34,12 @@
 		</c:forEach>
 	</table>
 	
-	</section>
-
+	
+	
+	<footer>
+	<div class="container">&copy; 2017 The Good Food, Inc. All Rights
+		Reserved</div>
+	</footer>
+	
 </body>
 </html>
