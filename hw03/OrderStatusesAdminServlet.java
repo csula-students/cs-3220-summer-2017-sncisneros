@@ -54,8 +54,8 @@ public void init() {
 		List<FoodItem> custItems = (List<FoodItem>) getServletContext().getAttribute("custItems");
 		List<Order> orders = (List<Order>) getServletContext().getAttribute("orders");
 		
-		//request.getRequestDispatcher("/order-status.jsp")
-      // .forward(request, response);
+		request.getRequestDispatcher("/order-statuses.jsp")
+       .forward(request, response);
 		response.setContentType("text/html");
 		/*
 		out.println("<head>");
@@ -82,7 +82,7 @@ public void init() {
 		out.println("</header>");
 		*/
 		
-		out.println("<body bgcolor='lightgray'>");
+	/*	out.println("<body bgcolor='lightgray'>");
 		out.println("<h2>Order Status - Admin</h2>");
 		
 		out.println("<table cellspacing='15px'>");
@@ -109,13 +109,15 @@ public void init() {
 		
 		out.println("<br/>");
 		out.println("<footer>&copy; 2017 The Good Food, Inc. All Rights Reserved</footer>");
-		
+		*/
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		request.getRequestDispatcher("/order-status.jsp").forward(request, response);
 	}
 
 }

@@ -19,7 +19,7 @@ public class FoodItemListAdminServlet extends HttpServlet {
 		
 		foods.add(new FoodItem(foods.size(), "Hamburger", "An all-American burger, made medium-well, with a whole wheat bun. Unlimited fries included!", "http://toriavey.com/images/2013/08/Hamburger-History-1.jpg", 12.99));
 		foods.add(new FoodItem(foods.size(), "Tacos", "Three tacos with grilled chicken, and a side of rice and beans. Your choice of salsa.!", "http://www.smells-like-home.com/wp-content/uploads/2012/08/roast-chicken-tacos-with-cilantro-cream-1.jpg", 17.95));
-		foods.add(new FoodItem(foods.size(), "Wings", "Ten chicken wings soaked in a spicy buffalo sauce. Served with ranch.!", "http://fodmapliving.com/wp-content/uploads/2013/01/buffalo-wings.jpg", 15.95));
+		foods.add(new FoodItem(foods.size(), "Wings", "Ten chicken wings soaked in a spicy buffalo sauce. Served with ranch!", "http://fodmapliving.com/wp-content/uploads/2013/01/buffalo-wings.jpg", 15.95));
 		getServletContext().setAttribute("foods", foods);
 		
 	}

@@ -23,6 +23,13 @@ public class FoodMenuServlet extends HttpServlet {
     public FoodMenuServlet() {
         super();
         // TODO Auto-generated constructor stub
+        
+        /*
+         * foods.add(new FoodItem(foods.size(), "Hamburger", "An all-American burger, made medium-well, with a whole wheat bun. Unlimited fries included!", "http://toriavey.com/images/2013/08/Hamburger-History-1.jpg", 12.99));
+		foods.add(new FoodItem(foods.size(), "Tacos", "Three tacos with grilled chicken, and a side of rice and beans. Your choice of salsa!", "http://www.smells-like-home.com/wp-content/uploads/2012/08/roast-chicken-tacos-with-cilantro-cream-1.jpg", 17.95));
+		foods.add(new FoodItem(foods.size(), "Buffalo Wings", "Ten chicken wings soaked in a spicy buffalo sauce. Served with ranch!", "http://fodmapliving.com/wp-content/uploads/2013/01/buffalo-wings.jpg", 15.95));
+		
+         */
     }
 
 	
@@ -50,33 +57,12 @@ public class FoodMenuServlet extends HttpServlet {
 		
 		getServletContext().setAttribute("newCustItems", newCustItems);
 		
-		request.getRequestDispatcher("/order.jsp")
-        .forward(request, response);
+		 response.sendRedirect("../shopping-cart");
+		//request.getRequestDispatcher("/order.jsp")
+       // .forward(request, response);
 		
-				
-		/*response.setContentType("text/html");
-		
-		out.println("<body bgcolor='pink'>");
-		
-		out.println("<h1>The Good Food</h1>");
-		out.println("</br>");
-		
-		out.println("<h2>Food Menu</h2>");
-		
-		out.println("<table>");
-		for (FoodItem food: foods){
 			
-			out.println("<tr>" +
-					"<td>" + food.getName() + " : </td>" +
-					"<td><img src ='" + food.getImageUrl() + "' alt='image' style='width:50px;height:50px' /></td>" +
-					"<td>" + food.getDescription() + "</td>" +
-					"<td>" + food.getPrice() + "</td>" +					
-					"</tr>");
-		}
-		out.println("</table>");
-		
-		out.println("</body>");
-		*/
+	
 	}
 
 	

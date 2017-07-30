@@ -22,9 +22,9 @@ public class CartServlet extends HttpServlet {
 	public void init() {
 		List<FoodItem> foods = new ArrayList<>();
 		
-		foods.add(new FoodItem(foods.size(), "Hamburger", "http://toriavey.com/images/2013/08/Hamburger-History-1.jpg", "An all-American burger, made medium-well, with a whole wheat bun. Unlimited fries included!", 12.99));
-		foods.add(new FoodItem(foods.size(), "Tacos", "http://www.smells-like-home.com/wp-content/uploads/2012/08/roast-chicken-tacos-with-cilantro-cream-1.jpg", "Three tacos with grilled chicken, and a side of rice and beans. Your choice of salsa.!", 17.95));
-		foods.add(new FoodItem(foods.size(), "Wings", "http://fodmapliving.com/wp-content/uploads/2013/01/buffalo-wings.jpg", "Ten chicken wings soaked in a spicy buffalo sauce. Served with ranch.!", 15.95));
+		foods.add(new FoodItem(foods.size(), "Hamburger", "An all-American burger, made medium-well, with a whole wheat bun. Unlimited fries included!", "http://toriavey.com/images/2013/08/Hamburger-History-1.jpg", 12.99));
+		foods.add(new FoodItem(foods.size(), "Tacos", "Three tacos with grilled chicken, and a side of rice and beans. Your choice of salsa.!", "http://www.smells-like-home.com/wp-content/uploads/2012/08/roast-chicken-tacos-with-cilantro-cream-1.jpg", 17.95));
+		foods.add(new FoodItem(foods.size(), "Wings", "Ten chicken wings soaked in a spicy buffalo sauce. Served with ranch!", "http://fodmapliving.com/wp-content/uploads/2013/01/buffalo-wings.jpg", 15.95));
 		getServletContext().setAttribute("foods", foods);
 		
 	}
@@ -36,6 +36,8 @@ public class CartServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		List<FoodItem> newCustItems = (List<FoodItem>) getServletContext().getAttribute("newCustItems");
 			
 		List<FoodItem> custItems = (List<FoodItem>) getServletContext().getAttribute("custItems");
 		
@@ -43,7 +45,6 @@ public class CartServlet extends HttpServlet {
         .forward(request, response);
 		
 		int id = Integer.parseInt(request.getParameter("remove"));
-		List<FoodItem> newCustItems = (List<FoodItem>) getServletContext().getAttribute("newCustItems");
 		
 				
 				int index = -1;
@@ -56,7 +57,7 @@ public class CartServlet extends HttpServlet {
 				
 				newCustItems.remove(index);
 				
-				getServletContext().setAttribute("newCustItems", newCustItems);
+				request.getSession().setAttribute("newCustItems", newCustItems);
 	
 				request.getRequestDispatcher("../order.jsp")
 		        .forward(request, response);

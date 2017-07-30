@@ -22,7 +22,7 @@ public class AdminHeader extends SimpleTagSupport {
 	      out.println("<img class=\"main\" src=\"https://static.pexels.com/photos/5317/food-salad-restaurant-person.jpg\">");
 	      out.println("<h1>"+ title +" - ADMIN</h1>");
 	     // out.println("<section class='navigation'><nav>");
-	      out.println("<a href='../foods/'>Inventory </a>|");
+	      out.println("<a href='../foods'>Inventory </a>|");
 	      out.println("<a href='../orders'>Order Statuses</a>");
 	    //  out.println("</nav></section");
 	      out.println("</header>");
