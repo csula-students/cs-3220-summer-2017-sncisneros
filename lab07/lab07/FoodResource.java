@@ -41,7 +41,7 @@ public class FoodResource {
     public FoodItem getFoodItem(@PathParam("id") int id) {
     	System.out.println(id); //testing purpose
     	FoodItemDAO dao = new FoodItemDAO();
-    	return items.get(id);
+    	return dao.get(id).get();
         
     }
     

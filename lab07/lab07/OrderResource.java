@@ -43,7 +43,7 @@ public class OrderResource {
     public Order getSingleOrder(@PathParam("id") int id) {
     	System.out.println(id); //testing purpose
     	OrderDAO dao = new OrderDAO();
-    	return orders.get(id);
+    	return dao.get(id).get();
         
     }
     

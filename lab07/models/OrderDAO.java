@@ -32,9 +32,9 @@ public class OrderDAO implements DAO<Order> {
                 list.add(new Order(
                     rs.getInt("id"),
                     rs.getInt("item_id"),
-                    rs.getString("custName"),
+                    rs.getString("cust_name"),
                     status,
-                    rs.getDate("date")
+                    rs.getDate("created")
                 ));
             }
         } catch (SQLException e) {
@@ -44,14 +44,14 @@ public class OrderDAO implements DAO<Order> {
         return list;
     }
 
-    public Optional<FoodItem> get(int id) {
+    public Optional<Order> get(int id) {
         return Optional.empty();
     }
 
     public void add(Order order) {
         Database db = new Database();
         try (Connection c = db.connection()) {
-        	PreparedStatement pstmt = c.prepareStatement("INSERT INTO orders (item_id, custName, status, created) VALUES (?, ?, ?, ?)");
+        	PreparedStatement pstmt = c.prepareStatement("INSERT INTO orders (item_id, cust_name, status, created) VALUES (?, ?, ?, ?)");
             pstmt.setInt(1, order.getItemId());
             pstmt.setString(2, order.getCustName());
             pstmt.setString(3, order.getStatuses().toString());
@@ -67,9 +67,9 @@ public class OrderDAO implements DAO<Order> {
     	Database db = new Database();
     	
     	try(Connection c = db.connection()){
-    		PreparedStatement pstmt = c.prepareStatement("UPDATE order SET custName='" + order.getCustName() + "', "
+    		PreparedStatement pstmt = c.prepareStatement("UPDATE order SET cust_name='" + order.getCustName() + "', "
     				+ "item_id='" + order.getItemId() + "', status='" + order.getStatuses() 
-    				+ "', date=" + order.getCreated() + "WHERE id=" + order.getId());
+    				+ "', created=" + order.getCreated() + "WHERE id=" + order.getId());
     		pstmt.executeUpdate();
     	}catch(SQLException e) {
             e.printStackTrace();

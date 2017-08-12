@@ -15,7 +15,7 @@ public interface DAO<T> {
     public List<T> list();
 
     // return single object given its id
-    public Optional<FoodItem> get(int id);
+    public Optional<T> get(int id);
 
     // add item obj into database
     public void add(T obj);
